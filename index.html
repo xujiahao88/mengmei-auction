@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蒙煤竞拍 · 季节性图谱</title>
-<link rel="stylesheet" href="assets/style.css?v=2">
-<link rel="stylesheet" href="assets/extra.css?v=2">
+<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/extra.css?v=3">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
     </div>
     <div class="toolbar">
       <div class="year-box" id="yearToggles"></div>
-      <label class="ctl chk"><input type="checkbox" id="optConnect" checked><span>连断点</span></label>
+      <label class="ctl chk"><input type="checkbox" id="optConnect"><span>连断点</span></label>
       <label class="ctl chk"><input type="checkbox" id="optZero"><span>Y轴含0</span></label>
       <label class="ctl chk"><input type="checkbox" id="optSync"><span>同行同Y</span></label>
       <button class="btn" id="btnExpand">全部展开</button>
@@ -26,6 +26,11 @@
   </div>
   <nav class="tabs" id="tabs"></nav>
 </header>
+
+<div class="freqbar">
+  <b>价格：日度</b>（拍卖日按成交量加权均价，非拍卖日按最近成交价延续，最多 15 天、不越过数据末日）
+  ｜ <b>流拍率 / 竞拍量 / 成交量：周度</b>（ISO 周汇总，横轴为年内第几周）
+</div>
 
 
 <section class="hero">
@@ -93,7 +98,7 @@
 </footer>
 
 <script src="assets/vendor/echarts.min.js"></script>
-<script src="data/data.js?v=3"></script>
-<script src="assets/app.js?v=2"></script>
+<script src="data/data.js?v=4"></script>
+<script src="assets/app.js?v=3"></script>
 </body>
 </html>

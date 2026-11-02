@@ -129,7 +129,8 @@
 
   function buildOption(chart, ds, yRange) {
     if (chart.type === 'bar') return buildBarOption(chart, ds);
-    var axis = ds.axes[chart.axis];
+    var xc = chart.xAxis || null;
+    var axis = xc ? xc.labels : ds.axes[chart.axis];
     var series = chart.series.filter(function (s) { return !S.hidden[s.name]; });
     var maxYear = series.length ? series[series.length - 1].name : '';
 
@@ -255,6 +256,17 @@
       })()
     };
 
+    if (xc) {
+      opt.xAxis.axisTick = {
+        show: true, length: 5, lineStyle: { color: '#cbd5e1' },
+        interval: function (i) { return xc.tickIdx.indexOf(i) >= 0; }
+      };
+      opt.xAxis.axisLabel.fontSize = 8;
+      opt.xAxis.axisLabel.interval = function (i) { return xc.tickIdx.indexOf(i) >= 0; };
+      opt.xAxis.axisLabel.formatter = function (v, i) {
+        return (xc.tickText && xc.tickText[i]) || v;
+      };
+    }
     return opt;
   }
 
