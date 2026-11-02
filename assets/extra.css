@@ -1,0 +1,101 @@
+/* 蒙煤竞拍站：顶部仓单折算表 + 结论卡（覆盖在 style.css 之上） */
+.hero {
+  max-width: 1920px;
+  margin: 16px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.hero .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+
+/* ---- KPI 条 ---- */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+  background: #fbfcfe;
+}
+.kpi { padding: 9px 12px 10px; border-right: 1px solid #eef1f6; }
+.kpi:last-child { border-right: none; }
+.kpi b {
+  display: block; font-size: 21px; line-height: 1.15; font-weight: 700;
+  color: #1f2937; font-variant-numeric: tabular-nums; letter-spacing: -.2px;
+}
+.kpi b.up { color: #c00000; }
+.kpi b.down { color: #15803d; }
+.kpi span { display: block; margin-top: 3px; font-size: 11px; color: #94a3b8; }
+
+/* ---- 仓单折算表 ---- */
+table.whs {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+}
+table.whs th, table.whs td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #eef1f6;
+  border-right: 1px solid #eef1f6;
+  text-align: right;
+  white-space: nowrap;
+}
+table.whs th:last-child, table.whs td:last-child { border-right: none; }
+table.whs thead th {
+  background: var(--brand-soft);
+  color: #1e3a5f;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.35;
+  padding: 7px 8px;
+  white-space: normal;
+}
+table.whs thead th.lab { text-align: left; }
+table.whs thead th i { font-style: normal; font-weight: 400; font-size: 10.5px; color: #64748b; }
+table.whs td.lab {
+  text-align: left; color: #475569; font-weight: 600;
+  background: #f8fafc; width: 30%;
+}
+table.whs td.pm { text-align: right; color: #64748b; width: 15%; }
+table.whs tbody tr:nth-child(even) td:not(.lab) { background: #fcfdff; }
+table.whs tbody tr:hover td:not(.lab) { background: #f0f4ff; }
+table.whs tr.tot td { font-weight: 700; background: #fff7ed !important; color: #7c2d12; }
+table.whs td.up { color: #c00000; font-weight: 600; }
+table.whs td.down { color: #15803d; font-weight: 600; }
+table.whs td.flat { color: #c3cbd6; }
+
+.note {
+  padding: 8px 12px 10px;
+  font-size: 11px;
+  line-height: 1.65;
+  color: #6b7280;
+  background: #f8fafc;
+  border-top: 1px solid var(--line);
+}
+.note b { color: #334155; }
+
+/* ---- 结论文字 ---- */
+.brief { padding: 4px 14px 12px; font-size: 12.5px; line-height: 1.78; color: #334155; }
+.brief p { margin: 9px 0; }
+.brief b { color: #1f2937; }
+.brief .take {
+  background: #f8fafc;
+  border-left: 3px solid #c00000;
+  border-radius: 0 4px 4px 0;
+  padding: 8px 10px;
+  margin-top: 12px;
+}
+
+/* 图表区高度（4 列一行，图略高一些） */
+main[data-ds="mj_auction"] .chart { height: 250px; }
+main[data-ds="mj_auction"] .card.wide .chart { height: 340px; }
+
+@media (max-width: 1500px) {
+  .hero { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .kpi:nth-child(2) { border-right: none; }
+}
