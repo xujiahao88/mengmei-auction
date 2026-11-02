@@ -101,6 +101,8 @@ table.whs td.flat { color: #c3cbd6; }
   border-bottom: 1px solid #eef1f6;
 }
 .freqbar b { color: #1e3a5f; font-weight: 600; }
+.freqbar .outl { display: block; margin-top: 4px; color: #94a3b8; }
+.freqbar .outl b { color: #b45309; }
 
 /* 图表区高度（4 列一行，图略高一些） */
 main[data-ds="mj_auction"] .chart { height: 250px; }
